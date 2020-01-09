@@ -1,3 +1,41 @@
-<p>
-  dashboard works!
-</p>
+<div class="outerClass">
+  <div class="leftDivClass">
+    <ng-container *ngFor="let data of dashboardData">
+      <div class="categoryBtns">
+        <div *ngFor="let category of data.category"
+          [ngClass]="setSelectedCategoryBgColor ? 'selectedCategoryCls' :'categoryBtn' "
+          (click)="selectCategory(category)">{{category.name}}</div>
+      </div>
+      <div class="sliderClass">
+        <label>Prize label</label><br>
+        <mat-slider class="example-margin" thumbLabel min="100" max="600">
+        </mat-slider>
+      </div>
+      <div class="preferredBaseClass">
+        <mat-form-field class="input_field">
+          <mat-label>Preferred Base</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let preferredBase of data.preferredBase" [value]="preferredBase.name">
+              {{preferredBase.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="preferredTypeClass">
+        <mat-form-field class="input_field">
+          <mat-label>Preferred Type</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let preferredType of data.preferredType" [value]="preferredType.name">
+              {{preferredType.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </ng-container>
+
+
+  </div>
+  <div class="rightDivClass">
+
+  </div>
+</div>

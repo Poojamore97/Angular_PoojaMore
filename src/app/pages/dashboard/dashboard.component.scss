@@ -1,0 +1,32 @@
+.outerClass{
+    margin:0 auto;
+    display: flex;
+    width: 100%;
+}
+.leftDivClass{
+    width: 50%;
+    float: left;
+    margin-left: 15%;
+    padding: 5%;
+}
+.rightDivClass{
+    width:50%
+}
+.categoryBtn{
+    display: inline;
+    border: 1px solid black;
+    padding: 4px 5% 4px 5%;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.selectedCategoryCls{
+    display: inline;
+    border: 1px solid black;
+    padding: 4px 5% 4px 5%;
+    margin-right: 5px;
+    background-color: black;
+    color: white;
+}
+.sliderClass{
+    margin-top:5%
+}
