@@ -1,0 +1,46 @@
+[
+    {
+        "category": [
+            {
+                "id": "0",
+                "name": "Veg"
+            },
+            {
+                "id": "0",
+                "name": "Non-veg"
+            }
+        ],
+        "preferredBase": [
+            {
+                "id": "0",
+                "name": "Thin Crust"
+            },
+            {
+                "id": "1",
+                "name": "Regular base"
+            },
+            {
+                "id": "2",
+                "name": "Flat bread"
+            },
+            {
+                "id": "3",
+                "name": "Multigrain"
+            }
+        ],
+        "preferredType": [
+            {
+                "id": "0",
+                "name": "Cheese burst"
+            },
+            {
+                "id": "1",
+                "name": "Cheese topping"
+            },
+            {
+                "id": "2",
+                "name": "No Cheese"
+            }
+        ]
+    }
+]
