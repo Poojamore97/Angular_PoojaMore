@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import {MatSliderModule} from '@angular/material/slider';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select"
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MatSelectModule} from "@angular/material/select"
         BrowserModule,
         MatSliderModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        FormsModule
     ],
     providers: [],
     exports: [HeaderComponent]

@@ -1,14 +1,13 @@
 <div class="outerClass">
   <div class="leftDivClass">
-    <ng-container *ngFor="let data of dashboardData">
+    <ng-container *ngFor="let data of dashboardData; let i = index">
       <div class="categoryBtns">
-        <div *ngFor="let category of data.category"
-          [ngClass]="setSelectedCategoryBgColor ? 'selectedCategoryCls' :'categoryBtn' "
+        <div *ngFor="let category of data.category" [ngClass]="category.selected === true ? 'selectedCategoryCls' :'categoryBtn' "
           (click)="selectCategory(category)">{{category.name}}</div>
       </div>
       <div class="sliderClass">
         <label>Prize label</label><br>
-        <mat-slider class="example-margin" thumbLabel min="100" max="600">
+        <mat-slider class="example-margin" thumbLabel min="100" max="600" [(ngModel)]="sliderValue">
         </mat-slider>
       </div>
       <div class="preferredBaseClass">
@@ -36,6 +35,20 @@
 
   </div>
   <div class="rightDivClass">
-
+      <a class="list-group-item clearfix" style="cursor: pointer">
+          <div class="pull-left">
+            <h4 class="list-group-item-heading">dfgdfgd</h4>
+            <p class="list-group-item-text">dfgdfvgdcv</p>
+          </div>
+          <span class="pull-right">
+            <img src="assets/img/logo.svg" alt="" class="img-responsive" style="max-height:50px">
+          </span>
+        </a>
+    <!-- <div class="imgWrapper">
+      <img src="assets/img/logo.svg">
+    </div>
+    <div class="contentWrapper">
+      <label>Demo</label>
+    </div> -->
   </div>
 </div>

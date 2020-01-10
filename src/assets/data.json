@@ -3,11 +3,13 @@
         "category": [
             {
                 "id": "0",
-                "name": "Veg"
+                "name": "Veg",
+                "selected": false
             },
             {
-                "id": "0",
-                "name": "Non-veg"
+                "id": "1",
+                "name": "Non-veg",
+                "selected": false
             }
         ],
         "preferredBase": [

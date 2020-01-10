@@ -7,13 +7,27 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  dashboardData: any
+  dashboardData: any;
+  listData: any;
   setSelectedCategoryBgColor: any;
+  sliderValue: any;
 
   constructor(private http: HttpClient) {
+    this.getFilterData();
+    this.getListData();
+  }
+
+  getFilterData() {
     this.http.get('assets/data.json').subscribe(response => {
       this.dashboardData = response;
-      console.log(this.dashboardData)
+      console.log(this.dashboardData);
+    });
+  }
+
+  getListData() {
+    this.http.get('assets/dummyObj.json').subscribe(response => {
+      this.listData = response;
+      console.log(this.listData);
     })
   }
 
@@ -21,13 +35,13 @@ export class DashboardComponent implements OnInit {
   }
   selectCategory(data) {
     this.dashboardData.forEach(element => {
-      element.category.filter(category => {
+      element.category.forEach(category => {
         if (category.name === data.name) {
-          this.setSelectedCategoryBgColor = true;
+          category.selected = true;
         } else {
-          this.setSelectedCategoryBgColor = false
+          category.selected = false;
         }
-      })
+      });
     });
 
     console.log(data)
