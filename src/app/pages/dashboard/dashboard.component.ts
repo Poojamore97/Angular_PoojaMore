@@ -9,8 +9,12 @@ import { HttpClient } from '@angular/common/http'
 export class DashboardComponent implements OnInit {
   dashboardData: any;
   listData: any;
+  selectedCategory: any;
+  preferredBase: any;
+  preferredType: any;
   setSelectedCategoryBgColor: any;
   sliderValue: any;
+  filterObject: any;
 
   constructor(private http: HttpClient) {
     this.getFilterData();
@@ -30,10 +34,19 @@ export class DashboardComponent implements OnInit {
       console.log(this.listData);
     })
   }
+  search() {
+    this.filterObject = {
+      preferredBase: this.preferredBase,
+      preferredType: this.preferredType,
+      amount: this.sliderValue,
+      type: this.selectedCategory
+    }
+  }
 
   ngOnInit() {
   }
   selectCategory(data) {
+    this.selectedCategory = data.name
     this.dashboardData.forEach(element => {
       element.category.forEach(category => {
         if (category.name === data.name) {

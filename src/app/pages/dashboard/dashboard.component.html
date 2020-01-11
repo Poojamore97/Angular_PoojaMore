@@ -2,7 +2,8 @@
   <div class="leftDivClass">
     <ng-container *ngFor="let data of dashboardData; let i = index">
       <div class="categoryBtns">
-        <div *ngFor="let category of data.category" [ngClass]="category.selected === true ? 'selectedCategoryCls' :'categoryBtn' "
+        <div *ngFor="let category of data.category"
+          [ngClass]="category.selected === true ? 'selectedCategoryCls' :'categoryBtn' "
           (click)="selectCategory(category)">{{category.name}}</div>
       </div>
       <div class="sliderClass">
@@ -13,7 +14,7 @@
       <div class="preferredBaseClass">
         <mat-form-field class="input_field">
           <mat-label>Preferred Base</mat-label>
-          <mat-select>
+          <mat-select [(ngModel)]="preferredBase">
             <mat-option *ngFor="let preferredBase of data.preferredBase" [value]="preferredBase.name">
               {{preferredBase.name}}
             </mat-option>
@@ -23,19 +24,42 @@
       <div class="preferredTypeClass">
         <mat-form-field class="input_field">
           <mat-label>Preferred Type</mat-label>
-          <mat-select>
+          <mat-select [(ngModel)]="preferredType">
             <mat-option *ngFor="let preferredType of data.preferredType" [value]="preferredType.name">
               {{preferredType.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
+      <button type="submit" (click)="search()">Search</button>
     </ng-container>
 
 
   </div>
   <div class="rightDivClass">
-      <a class="list-group-item clearfix" style="cursor: pointer">
+    <div class="card mb-3" style="max-width: 540px;" *ngFor="let data of listData | filter: filterObject; ">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="assets/img/logo.svg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{data.name}}</h5>
+            <div class="card-text">
+              <ul>
+                <li>{{data.preferredBase}}</li>
+                <li>{{data.preferredType}}</li>
+                <li>{{data.type}}</li>
+              </ul>
+            </div>
+            <p class="card-text">Rs {{data.amount}}
+              <button type="submit">Add</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <a class="list-group-item clearfix" style="cursor: pointer">
           <div class="pull-left">
             <h4 class="list-group-item-heading">dfgdfgd</h4>
             <p class="list-group-item-text">dfgdfvgdcv</p>
@@ -43,7 +67,7 @@
           <span class="pull-right">
             <img src="assets/img/logo.svg" alt="" class="img-responsive" style="max-height:50px">
           </span>
-        </a>
+        </a> -->
     <!-- <div class="imgWrapper">
       <img src="assets/img/logo.svg">
     </div>
